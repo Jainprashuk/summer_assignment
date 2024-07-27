@@ -60,11 +60,12 @@ const verifyToken = (req, res, next) => {
         const { authorization } = req.headers;
 
         if (!authorization) {
-            return res.status(401).json({
-                status: "fail",
-               message: "Unauthorized: No authorization header",
-                data: {},
-            });
+            // return res.status(401).json({
+            //     status: "fail",
+            //    message: "Unauthorized: No authorization header",
+            //     data: {},
+            // });
+            next()
         }
 
         const token = authorization.split(" ")[1];
